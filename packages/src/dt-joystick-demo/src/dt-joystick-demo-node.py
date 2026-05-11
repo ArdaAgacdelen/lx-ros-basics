@@ -40,6 +40,10 @@ class DTJoystickDemoNode:
         ### TODO! You need to fill in this part to set the left and right wheel commands based on the
         ### the incoming joystick data contained in `msg`
 
+        cmd_to_publish.vel_right = msg.axes[1] + msg.axes[3]
+        cmd_to_publish.vel_left  = msg.axes[1] - msg.axes[3]
+            
+        # (1  // 1 )
         # Finally we publish the data
         self.pub_wheel_cmds.publish(cmd_to_publish)
 
